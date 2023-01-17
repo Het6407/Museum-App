@@ -32,31 +32,34 @@
 	<!-- END: Vendor CSS-->
 
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
-    <!-- END: Vendor CSS-->
+	<link rel="stylesheet" type="text/css"
+		href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+	<!-- END: Vendor CSS-->
 
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+	<!-- BEGIN: Theme CSS-->
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
 
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-user.css">
-    <!-- END: Page CSS-->
+	<!-- BEGIN: Page CSS-->
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-user.css">
+	<!-- END: Page CSS-->
 
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+	<!-- BEGIN: Custom CSS-->
+	<link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
-  
+
 
 
 	<!-- END: Custom CSS-->
@@ -112,22 +115,25 @@
 				</li>
 
 
-			<li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
+				<li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
 						id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
-						<div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder" th:text="${#authentication.getPrincipal().getUsername()}">Guest
-								</span><span class="user-status" th:text="${#authentication.getPrincipal().getRole()}">Admin</span></div><span class="avatar"><img
-								class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg"
-								alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+						<div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder"
+								th:text="${#authentication.getPrincipal().getUsername()}">Guest
+							</span><span class="user-status"
+								th:text="${#authentication.getPrincipal().getRole()}">Admin</span></div><span
+							class="avatar"><img class="round"
+								src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40"
+								width="40"><span class="avatar-status-online"></span></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a
 							class="dropdown-item" th:href="@{/profile}"><i class="mr-50" data-feather="user"></i>
 							Profile</a>
-							
-						<a class="dropdown-item"
-							href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i>
-							Settings</a><a
-							class="dropdown-item" th:href=@{/logout}><i class="mr-50" data-feather="power"></i>
+
+						<a class="dropdown-item" href="page-account-settings.html"><i class="mr-50"
+								data-feather="settings"></i>
+							Settings</a><a class="dropdown-item" th:href=@{/logout}><i class="mr-50"
+								data-feather="power"></i>
 							Logout</a>
 					</div>
 				</li>
@@ -295,21 +301,23 @@
 							data-i18n="Dashboards">Dashboards</span></a>
 
 				</li>
-				 <li class="active nav-item"><a class="d-flex align-items-center" th:href="@{/user}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Email">User Management</span></a>
-                </li>
-				
-
+				<li class="active nav-item"><a class="d-flex align-items-center" th:href="@{/user}"><i
+							data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Email">User
+							Management</span></a>
+				</li>
 
 				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/museum}"><i
 							data-feather="home"></i><span class="menu-title text-truncate"
 							data-i18n="File Manager">Manage Museum</span></a>
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/viewAudio}"><i data-feather="music"></i><span
-							class="menu-title text-truncate" data-i18n="eCommerce">Audio File</span></a>
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/viewAudio}"><i
+							data-feather="music"></i><span class="menu-title text-truncate" data-i18n="eCommerce">Audio
+							File</span></a>
 
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/beacon}"><i data-feather="radio"></i><span
-							class="menu-title text-truncate" data-i18n="eCommerce">Beacon</span></a>
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/beacon}"><i
+							data-feather="radio"></i><span class="menu-title text-truncate"
+							data-i18n="eCommerce">Beacon</span></a>
 
 				</li>
 				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/label}"><i
@@ -320,7 +328,7 @@
 				<li class=" navigation-header"><span data-i18n="User Interface">Account Setting</span><i
 						data-feather="more-horizontal"></i>
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/app_setting}"><i
 							data-feather="settings"></i><span class="menu-title text-truncate"
 							data-i18n="Typography">App Settings</span></a>
 				</li>
@@ -355,11 +363,10 @@
 				<section class="app-user-list">
 					<!-- users filter start -->
 					<div class="card">
-						 <h5 style="position: absolute; top: 36%; left: 2%; color: blueviolet; font-weight: bold;">User List</h5>
-						
-						<a th:href="@{/AddUser}"
-							style="color: white;background-color: transparent;text-decoration: none;position: relative;width: 148px;left: 1049px;bottom: -12px;"
-							class="btn btn-primary hello">Add New User
+						<h5 style="position: absolute; top: 36%; left: 2%; color: blueviolet; font-weight: bold;">User
+							List</h5>
+
+						<a th:href="@{/AddUser}" class="btn btn-primary hello">Add User
 						</a>
 						<div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
 							<div class="col-md-4 user_role"></div>
@@ -385,17 +392,17 @@
 								</thead>
 								<tbody>
 									<tr th:each="user:${listUsers}">
-									
-										<td  rowspan="1" style = "text-align:center;" th:text="${user.id}"></td>
-										<td  rowspan="1" style = "text-align:center;" th:text="${user.username}"></td>
-										<td  rowspan="1" style = "text-align:center;" th:text="${user.email}"></td>
-										<td  rowspan="1" style = "text-align:center;" th:text="${user.phone}"></td>
-										<td  rowspan="1" style = "text-align:center;" th:text="${user.Role}"></td>
-										<td  rowspan="1" style = "text-align:center;">
+
+										<td rowspan="1" style="text-align:center;" th:text="${user.id}"></td>
+										<td rowspan="1" style="text-align:center;" th:text="${user.username}"></td>
+										<td rowspan="1" style="text-align:center;" th:text="${user.email}"></td>
+										<td rowspan="1" style="text-align:center;" th:text="${user.phone}"></td>
+										<td rowspan="1" style="text-align:center;" th:text="${user.Role}"></td>
+										<td rowspan="1" style="text-align:center;">
 											<div class="custom-control custom-switch custom-switch-success">
-												<input type="checkbox" class="custom-control-input" th:id="'status'+${user.id}"
-												   th:checked = "${user.status}"
-													th:onchange="'changeStatus('+${user.id}+');'"  />
+												<input type="checkbox" class="custom-control-input"
+													th:id="'status'+${user.id}" th:checked="${user.status}"
+													th:onchange="'changeStatus('+${user.id}+');'" />
 												<label class="custom-control-label" th:for="'status'+${user.id}">
 													<span class="switch-icon-left"><i data-feather="check"></i></span>
 													<span class="switch-icon-right"><i data-feather="x"></i></span>
@@ -406,7 +413,8 @@
 												th:href="@{/updateUser/{id}(id=${user.id})}"
 												class="btn btn-outline-success round waves-effect">Edit</a>
 											<button th:onclick="'deleteUser('+${user.id}+');'"
-											class="btn btn-outline-danger round waves-effect confirm-delete" id="deleteButton">Delete</button>
+												class="btn btn-outline-danger round waves-effect confirm-delete"
+												id="deleteButton">Delete</button>
 										</td>
 									</tr>
 								</tbody>
@@ -428,7 +436,7 @@
 	<div class="sidenav-overlay"></div>
 	<div class="drag-target"></div>
 
-	
+
 
 
 	<!-- BEGIN: Vendor JS-->
@@ -443,9 +451,10 @@
 	<script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
 	<script src="../../../app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
 	<script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-	
- 
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+
 	<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
 
 	<!-- END: Page Vendor JS-->
@@ -463,7 +472,7 @@
 	<!-- END: Page JS-->
 
 
-	
+
 	<script>
 		$(window).on('load', function () {
 			if (feather) {
@@ -515,38 +524,38 @@
 		}
 
 
-		
+
 
 	</script>
 	<script>
-	function changeStatus(id){
-		
-         $.post({
-                async: false,
-                url: "../status/"+id,
-                type: 'post',
-                success:(result) =>{
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Status Changed!',
-                    //text:  result,
-                    customClass: {
-                      confirmButton: 'btn btn-success'
-                    }
-                    })
-                 },
-            error:(result) =>{
-            Swal.fire({
-                    icon: 'fail',
-                    title: 'Status Change Failure!',
-                    text:  result.responseText,
-                    customClass: {
-                      confirmButton: 'btn btn-success'
-                    }
-                    })
-            }
-       })
-    }
+		function changeStatus(id) {
+
+			$.post({
+				async: false,
+				url: "../status/" + id,
+				type: 'post',
+				success: (result) => {
+					Swal.fire({
+						icon: 'success',
+						title: 'Status Changed!',
+						//text:  result,
+						customClass: {
+							confirmButton: 'btn btn-success'
+						}
+					})
+				},
+				error: (result) => {
+					Swal.fire({
+						icon: 'fail',
+						title: 'Status Change Failure!',
+						text: result.responseText,
+						customClass: {
+							confirmButton: 'btn btn-success'
+						}
+					})
+				}
+			})
+		}
 
 
 	</script>

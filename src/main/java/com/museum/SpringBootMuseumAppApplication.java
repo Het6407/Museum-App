@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.museum.model.Setting;
 import com.museum.model.User;
+import com.museum.repository.SettingRepository;
 import com.museum.repository.UserRepository;
 
 @SpringBootApplication
@@ -35,6 +37,14 @@ public class SpringBootMuseumAppApplication {
 	 */
 	 
 	 
+	
+	/*
+	 * @Bean CommandLineRunner demo2(SettingRepository settingRepository) { return
+	 * (args) -> {
+	 * 
+	 * settingRepository.save(Setting.builder() .android_Version("1.0")
+	 * .ios_Version("1.0.0") .build()); }; }
+	 */
 	 
   
 	 

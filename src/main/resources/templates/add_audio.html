@@ -90,18 +90,21 @@
 				<li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
 						id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
-						<div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder" th:text="${#authentication.getPrincipal().getUsername()}">Guest
-								</span><span class="user-status" th:text="${#authentication.getPrincipal().getRole()}">Admin</span></div><span class="avatar"><img
-								class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg"
-								alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+						<div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder"
+								th:text="${#authentication.getPrincipal().getUsername()}">Guest
+							</span><span class="user-status"
+								th:text="${#authentication.getPrincipal().getRole()}">Admin</span></div><span
+							class="avatar"><img class="round"
+								src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40"
+								width="40"><span class="avatar-status-online"></span></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a
 							class="dropdown-item" th:href="@{/profile}"><i class="mr-50" data-feather="user"></i>
 							Profile</a>
-						<a class="dropdown-item"
-							href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i>
-							Settings</a><a
-							class="dropdown-item" th:href=@{/logout}><i class="mr-50" data-feather="power"></i>
+						<a class="dropdown-item" href="page-account-settings.html"><i class="mr-50"
+								data-feather="settings"></i>
+							Settings</a><a class="dropdown-item" th:href=@{/logout}><i class="mr-50"
+								data-feather="power"></i>
 							Logout</a>
 					</div>
 				</li>
@@ -279,11 +282,14 @@
 							data-feather="home"></i><span class="menu-title text-truncate"
 							data-i18n="File Manager">Manage Museum</span></a>
 				</li>
-				 <li class="active nav-item"><a class="d-flex align-items-center" th:href="@{/viewAudio}"><i data-feather="music"></i><span class="menu-title text-truncate" data-i18n="Email">Audio File</span></a>
-                </li>
-				
-				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/beacon}"><i data-feather="radio"></i><span
-							class="menu-title text-truncate" data-i18n="eCommerce">Beacon</span></a>
+				<li class="active nav-item"><a class="d-flex align-items-center" th:href="@{/viewAudio}"><i
+							data-feather="music"></i><span class="menu-title text-truncate" data-i18n="Email">Audio
+							File</span></a>
+				</li>
+
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/beacon}"><i
+							data-feather="radio"></i><span class="menu-title text-truncate"
+							data-i18n="eCommerce">Beacon</span></a>
 
 				</li>
 				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/label}"><i
@@ -294,7 +300,7 @@
 				<li class=" navigation-header"><span data-i18n="User Interface">Account Setting</span><i
 						data-feather="more-horizontal"></i>
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/app_setting}"><i
 							data-feather="settings"></i><span class="menu-title text-truncate"
 							data-i18n="Typography">App Settings</span></a>
 				</li>
@@ -326,118 +332,129 @@
 			</div>
 			<div class="content-body">
 				<!-- users list start -->
-				  <section >
-                    <div class="row">
-                        
-                        <div class="col-md-12 col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Add Audio</h4>
-                                </div>
-                                <div class="card-body">
-                                    <form  th:action="@{/saveAudio}" th:object="${audio}" enctype="multipart/form-data"method="post">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="fname-icon">Title</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group input-group-merge">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i data-feather="user"></i></span>
-                                                            </div>
-                                                            <input type="text" id="fname-icon" class="form-control" name="fname-icon" th:field="*{title}" placeholder="Title" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="email-icon">Discription</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group input-group-merge">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i data-feather="mail"></i></span>
-                                                            </div>
-                                                            <textarea type="text" id="email-icon" class="form-control" name="email-id-icon" th:field="*{discription}" placeholder="Discription Here" >
-                                                            </textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="contact-icon">Language</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group input-group-merge">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i data-feather="menu"></i></span>
-                                                            </div>
-                                                            <select class="form-control" th:field=*{language}>
-												<option id="-1" value="-1">--Select--</option>
-												<option Value="Hindi">Hindi</option>
-												<option Value="English">English</option>
-												<option Value="Turkish">Turkish</option>
-											</select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                              
-                                            <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="pass-icon">Select Beacon</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                    <div class="input-group input-group-merge">
-                                                    <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i data-feather="radio"></i></span>
-                                                            </div>
-                                                        <select class="form-control" th:field=*{Tblbeacon}>
-												<option id="-1" value="-1">--Select--</option>
-												<option th:id="${beacon.id}"
-													th:each="beacon : ${listBeacon}"
-													th:value="${beacon.id}"
-													th:text="${beacon.beacon_name}"></option>
-											</select>
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                           
-                                             <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="email-icon">Audio</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group input-group-merge">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i data-feather="image"></i></span>
-                                                            </div>
-                                                            <input type="file"  class="form-control" name="file"  placeholder="Profile Image" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                           
-                                            <div class="col-sm-9 offset-sm-3">
-                                                <button type="submit" class="btn btn-primary mr-1">Submit</button>
-                                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+				<section>
+					<div class="row">
+
+						<div class="col-md-12 col-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Add Audio</h4>
+								</div>
+								<div class="card-body">
+									<form th:action="@{/saveAudio}" th:object="${audio}" enctype="multipart/form-data"
+										method="post">
+										<div class="row">
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="fname-icon">Title</label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																		data-feather="user"></i></span>
+															</div>
+															<input type="text" id="fname-icon" class="form-control"
+																name="fname-icon" th:field="*{title}"
+																placeholder="Title" />
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="email-icon">Discription</label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																		data-feather="mail"></i></span>
+															</div>
+															<textarea type="text" id="email-icon" class="form-control"
+																name="email-id-icon" th:field="*{discription}"
+																placeholder="Discription Here">
+															</textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="contact-icon">Language</label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																		data-feather="menu"></i></span>
+															</div>
+															<select class="form-control" th:field=*{language}>
+																<option id="-1" value="-1">--Select--</option>
+																<option Value="Hindi">Hindi</option>
+																<option Value="English">English</option>
+																<option Value="Turkish">Turkish</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="pass-icon">Select Beacon</label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																		data-feather="radio"></i></span>
+															</div>
+															<select class="form-control" th:field=*{Tblbeacon}>
+																<option id="-1" value="-1">--Select--</option>
+																<option th:id="${beacon.id}"
+																	th:each="beacon : ${listBeacon}"
+																	th:value="${beacon.id}"
+																	th:text="${beacon.beacon_name}"></option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="email-icon">Audio</label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																		data-feather="image"></i></span>
+															</div>
+															<input type="file" class="form-control" name="file"
+																placeholder="Profile Image" />
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-sm-9 offset-sm-3">
+												<button type="submit" class="btn btn-primary mr-1">Submit</button>
+												<button type="reset" class="btn btn-outline-secondary">Reset</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 		</div>
 	</div>
@@ -485,15 +502,15 @@
 		})
 
 	</script>
-	
+
 	<script>
-	 typeWarning.on('click', function () {
-    toastr['warning']('👋 Icing cake pudding carrot cake jujubes tiramisu chocolate cake.', 'Warning!', {
-      closeButton: true,
-      tapToDismiss: false,
-      rtl: isRtl
-    });
-  });
+		typeWarning.on('click', function () {
+			toastr['warning']('👋 Icing cake pudding carrot cake jujubes tiramisu chocolate cake.', 'Warning!', {
+				closeButton: true,
+				tapToDismiss: false,
+				rtl: isRtl
+			});
+		});
 	</script>
 
 </body>

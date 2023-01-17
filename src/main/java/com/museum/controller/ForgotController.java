@@ -47,6 +47,7 @@ public class ForgotController {
 		
 		int otp = random.nextInt(999999);
 		
+		
 		System.out.println("OTP"+ otp);
 		
 		

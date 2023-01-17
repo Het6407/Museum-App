@@ -15,19 +15,19 @@ public class SettingController {
 	@Autowired
 	private SettingService settingService;
 	
-	@GetMapping("/app_setting")
-	public String app_Setting(Model model) {
-		model.addAttribute("listSetting",settingService.getAllSetting());
-		return "app_Setting";
-	}
+//	@GetMapping("/app_setting")
+//	public String app_Setting(Model model) {
+//		model.addAttribute("listSetting",settingService.getAllSetting());
+//		return "app_Setting";
+//	}
 	
 	@RequestMapping("/saveSetting")
 	public String saveSetting(Setting setting,Model model) {
 		settingService.saveSetting(setting);
-		return "redirect:/addSetting";
+		return "redirect:/app_setting";
 	}
 	
-	@GetMapping("/addSetting")
+	@GetMapping("/app_setting")
 	public String addSetting(Setting setting,Model model) {
 		
 		model.addAttribute("setting",setting);

@@ -40,8 +40,8 @@
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-user.css">
-	 <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
-	     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
 	<!-- END: Page CSS-->
 
 	<!-- BEGIN: Custom CSS-->
@@ -92,18 +92,21 @@
 				<li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
 						id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
-						<div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder" th:text="${#authentication.getPrincipal().getUsername()}">Guest
-								</span><span class="user-status" th:text="${#authentication.getPrincipal().getRole()}">Admin</span></div><span class="avatar"><img
-								class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg"
-								alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+						<div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder"
+								th:text="${#authentication.getPrincipal().getUsername()}">Guest
+							</span><span class="user-status"
+								th:text="${#authentication.getPrincipal().getRole()}">Admin</span></div><span
+							class="avatar"><img class="round"
+								src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40"
+								width="40"><span class="avatar-status-online"></span></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a
 							class="dropdown-item" th:href="@{/profile}"><i class="mr-50" data-feather="user"></i>
 							Profile</a>
-						<a class="dropdown-item"
-							href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i>
-							Settings</a><a
-							class="dropdown-item" th:href=@{/logout}><i class="mr-50" data-feather="power"></i>
+						<a class="dropdown-item" href="page-account-settings.html"><i class="mr-50"
+								data-feather="settings"></i>
+							Settings</a><a class="dropdown-item" th:href=@{/logout}><i class="mr-50"
+								data-feather="power"></i>
 							Logout</a>
 					</div>
 				</li>
@@ -281,12 +284,14 @@
 							data-feather="home"></i><span class="menu-title text-truncate"
 							data-i18n="File Manager">Manage Museum</span></a>
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/viewAudio}"><i data-feather="music"></i><span
-							class="menu-title text-truncate" data-i18n="eCommerce">Audio File</span></a>
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/viewAudio}"><i
+							data-feather="music"></i><span class="menu-title text-truncate" data-i18n="eCommerce">Audio
+							File</span></a>
 
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/beacon}"><i data-feather="radio"></i><span
-							class="menu-title text-truncate" data-i18n="eCommerce">Beacon</span></a>
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/beacon}"><i
+							data-feather="radio"></i><span class="menu-title text-truncate"
+							data-i18n="eCommerce">Beacon</span></a>
 
 				</li>
 				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/label}"><i
@@ -297,13 +302,15 @@
 				<li class=" navigation-header"><span data-i18n="User Interface">Account Setting</span><i
 						data-feather="more-horizontal"></i>
 				</li>
-				<li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i
+				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/app_setting}"><i
 							data-feather="settings"></i><span class="menu-title text-truncate"
 							data-i18n="Typography">App Settings</span></a>
 				</li>
-				<li class="active nav-item"><a class="d-flex align-items-center" th:href="@{/default_Audio}"><i data-feather="sliders"></i><span class="menu-title text-truncate" data-i18n="Email">Default Audio File Saved</span></a>
-                </li>
-				
+				<li class="active nav-item"><a class="d-flex align-items-center" th:href="@{/default_Audio}"><i
+							data-feather="sliders"></i><span class="menu-title text-truncate" data-i18n="Email">Default
+							Audio File Saved</span></a>
+				</li>
+
 				<li class=" nav-item"><a class="d-flex align-items-center" th:href="@{/profile}"><i
 							data-feather="user"></i><span class="menu-title text-truncate"
 							data-i18n="Feather">Profile</span></a>
@@ -328,67 +335,71 @@
 			</div>
 			<div class="content-body">
 				<!-- users list start -->
-			 <section >
-                    <div class="row">
-                        
-                        <div class="col-md-12 col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Default Audio</h4>
-                                </div>
-                                <div class="card-body">
-                                    <form  th:action="@{/saveDefault_Audio}" th:object="${museum}" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" th:field="*{id}" />
-                                    <div th:text="${error}" style="color:red; text-align:center;"></div>
-                                    
-                                        <div class="row">
-                                             <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="email-icon">Default Audio</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group input-group-merge">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i data-feather="image"></i></span>
-                                                            </div>
-                                                            <input type="file"  class="form-control" name="file"  placeholder="Profile Image" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 col-form-label">
-                                                        <label for="email-icon"></label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="input-group input-group-merge">
-                                                            
-                                                          <audio crossorigin controls >
-												  <source  th:src="@{'/showDefaultAudio/' + ${museum.id}}" type="audio/mp3">
-												</audio>
-                                                            
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                              
-                                          
-                                           
-                                            <div class="col-sm-9 offset-sm-3">
-                                                <button type="submit" class="btn btn-primary mr-1">Submit</button>
-                                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+				<section>
+					<div class="row">
+
+						<div class="col-md-12 col-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Default Audio</h4>
+								</div>
+								<div class="card-body">
+									<form th:action="@{/saveDefault_Audio}" th:object="${museum}" method="post"
+										enctype="multipart/form-data">
+										<input type="hidden" th:field="*{id}" />
+										<div th:text="${error}" style="color:red; text-align:center;"></div>
+
+										<div class="row">
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="email-icon">Default Audio</label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																		data-feather="image"></i></span>
+															</div>
+															<input type="file" class="form-control" name="file"
+																placeholder="Profile Image" />
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group row">
+													<div class="col-sm-3 col-form-label">
+														<label for="email-icon"></label>
+													</div>
+													<div class="col-sm-9">
+														<div class="input-group input-group-merge">
+
+															<audio crossorigin controls>
+																<source th:src="@{'/showDefaultAudio/' + ${museum.id}}"
+																	type="audio/mp3">
+															</audio>
+
+
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+
+
+											<div class="col-sm-9 offset-sm-3">
+												<button type="submit" class="btn btn-primary mr-1">Submit</button>
+												<button type="reset" class="btn btn-outline-secondary">Reset</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
 			</div>
 		</div>
@@ -437,15 +448,15 @@
 		})
 
 	</script>
-	
+
 	<script>
-	 typeWarning.on('click', function () {
-    toastr['warning']('👋 Icing cake pudding carrot cake jujubes tiramisu chocolate cake.', 'Warning!', {
-      closeButton: true,
-      tapToDismiss: false,
-      rtl: isRtl
-    });
-  });
+		typeWarning.on('click', function () {
+			toastr['warning']('👋 Icing cake pudding carrot cake jujubes tiramisu chocolate cake.', 'Warning!', {
+				closeButton: true,
+				tapToDismiss: false,
+				rtl: isRtl
+			});
+		});
 	</script>
 
 </body>
