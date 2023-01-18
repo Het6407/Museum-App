@@ -98,7 +98,7 @@
 											</g>
 										</g>
 									</svg>
-									<h2 class="brand-text text-primary ml-1">Vuexy</h2>
+									<h2 class="brand-text text-primary ml-1">Museum App</h2>
 								</a>
 
 								<h4 class="card-title mb-1">Forgot Password? 🔒</h4>
@@ -108,7 +108,7 @@
 								<form class="auth-forgot-password-form mt-2" th:action="@{/sendOtp}" method="POST">
 									<div style="position: relative; width: 346px;" th:if="${message}"
 										th:text="${message}" th:class="${'alert ' + alertClass}"></div>
-									<div th:if="${session.message}" class="container">
+									<div th:if="${session.message}" class="container ">
 
 										<div class="alert alert-danger my-2 text-center" role="alert">
 											<span th:text="${session.message}"></span>

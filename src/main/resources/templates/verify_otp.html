@@ -98,12 +98,18 @@
 											</g>
 										</g>
 									</svg>
-									<h2 class="brand-text text-primary ml-1">Vuexy</h2>
+									<h2 class="brand-text text-primary ml-1">Museum App</h2>
 								</a>
-								<div class="alert alert-success" role="alert">
+								<div class="alert alert-success world" role="alert">
 									We have send the OTP on our email
 								</div>
+									<div th:if="${session.message}" class="container ">
 
+										<div class="alert alert-danger springBoot my-2 text-center" role="alert">
+											<span th:text="${session.message}"></span>
+										</div>
+										<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+									</div>
 
 								<h4 class="card-title mb-1">Verify OTP 🔒</h4>
 

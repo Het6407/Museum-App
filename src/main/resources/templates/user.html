@@ -57,8 +57,8 @@
 
 	<!-- BEGIN: Custom CSS-->
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
-	<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+	
+	
 
 
 
@@ -103,8 +103,7 @@
                 </li>-->
 				<li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon"
 							data-feather="moon"></i></a></li>
-				<li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon"
-							data-feather="search"></i></a>
+				<li class="nav-item nav-search">
 					<div class="search-input">
 						<div class="search-input-icon"><i data-feather="search"></i></div>
 						<input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1"
@@ -378,7 +377,7 @@
 					<!-- list section start -->
 					<div class="card">
 						<div class="card-datatable table-responsive pt-0">
-							<table id="example" class="table" cellspacing="0" width="100%">
+							<table id="myTable" class="table" cellspacing="0" width="100%">
 								<thead class="thead-light">
 									<tr>
 										<th></th>
@@ -451,11 +450,10 @@
 	<script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
 	<script src="../../../app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
 	<script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-	<script type="text/javascript" charset="utf8"
-		src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-
-
-	<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+	
+<!--<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>-->
 
 	<!-- END: Page Vendor JS-->
 
@@ -559,7 +557,12 @@
 
 
 	</script>
-
+	
+	<script>
+	$(document).ready(function () {
+    $('#example').DataTable();
+});
+	</script>
 
 
 </body>

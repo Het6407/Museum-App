@@ -2680,6 +2680,18 @@ input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-o
   left: 26%;
 }
 
+.world{
+	position: relative;
+	width: 82%;
+	left: 8%;
+}
+
+.spring{
+	position: relative;
+	width: 75%;
+	left: 10%;
+}
+
 .alert.alert-dismissible .close {
   padding : 0.5rem 1rem 0.5rem 1rem;
   background-color : transparent !important;

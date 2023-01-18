@@ -4207,6 +4207,12 @@ input:focus ~ .bg-warning {
 .alert-danger {
   background : rgba(234, 84, 85, 0.12) !important;
   color : #EA5455 !important;
+  width: 100%;
+  left: -1%;
+}
+
+.springBoot{
+	position: relative;
 }
 
 .alert-danger .alert-heading {
