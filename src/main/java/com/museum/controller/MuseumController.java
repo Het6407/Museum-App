@@ -6,7 +6,11 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.rmi.server.ExportException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.museum.Utility.CommonUtility;
 import com.museum.model.Museum;
 import com.museum.model.User;
 import com.museum.repository.Audio_fileRepository;
@@ -62,7 +67,7 @@ public class MuseumController {
 
 	
 	@GetMapping("/dashBoard")
-	public String viewDashBoard(Model model) {
+	public String viewDashBoard(Model model,HttpServletRequest request) {
 		
 		model.addAttribute("total_count", userRepository.count());
 		model.addAttribute("count", museumRepository.count());
@@ -70,6 +75,11 @@ public class MuseumController {
 		model.addAttribute("Total_count", audio_fileRepository.count());
 		model.addAttribute("total", labelRepository.count());
 		
+		HttpSession session = request.getSession(false);
+		
+		User user = CommonUtility.getAuthenticatedUser();
+		
+		session.setAttribute("userId", user.getId());
 		return "dashBoard";
 	}
 
