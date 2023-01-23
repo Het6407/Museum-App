@@ -359,7 +359,7 @@
 															</div>
 															<input type="text" id="fname-icon" class="form-control"
 																name="fname-icon" th:field="*{beacon_name}"
-																placeholder="Beacon Name" />
+																placeholder="Beacon Name" required/>
 														</div>
 													</div>
 												</div>
@@ -377,7 +377,7 @@
 															</div>
 															<textarea id="email-icon" class="form-control"
 																name="email-id-icon" th:field="*{description}"
-																placeholder="Address Here">
+																placeholder="Address Here" required>
 															</textarea>
 
 														</div>
@@ -394,7 +394,7 @@
 
 															<input type="file" accept="image/*" multiple
 																class="dropzone dropzone-area" name="beacon-image"
-																id="images" />
+																id="images" required/>
 														</div>
 													</div>
 												</div>

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -96,6 +97,8 @@ public class UserController {
 		user.getProfileImage();
 		userService.saveUser(user);
 		
+		
+		
 		return "redirect:/user";
 	}
 	
@@ -119,12 +122,19 @@ public class UserController {
 		User user = userService.getUserById(id);
 		model.addAttribute("listMuseum", museumService.getAllMuseum());
 
+		
+		
+		
 		System.out.println(user);
 		model.addAttribute("user", user);
 		
 		return "update_User";
 	}
 	
+
+	
+
+
 
 	@RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
 	public String deleteThroughId(@PathVariable(value = "id") long id) {

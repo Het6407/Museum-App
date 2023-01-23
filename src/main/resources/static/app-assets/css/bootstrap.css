@@ -123,6 +123,37 @@ b, strong {
   font-weight : 600;
 }
 
+#message {
+  position: relative;
+  left: 6%;
+}
+
+#message h3 {
+  position: relative;
+  right: 6%;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
 small {
   font-size : 80%;
 }

@@ -20,7 +20,7 @@ public interface UserService extends UserDetailsService{
 
 	User findByUsername(String userName);
 
-	
+	User getProfileImage(Long id);
 
 	User findById(Long id);
 

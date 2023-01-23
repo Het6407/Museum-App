@@ -121,6 +121,13 @@ public class UserServiceImpl implements UserService{
 
 
 
+	@Override
+	public User getProfileImage(Long id) {
+		return userRepository.findByProfileImage(id);
+	}
+
+
+
 	
 
 

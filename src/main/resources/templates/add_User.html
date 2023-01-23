@@ -357,7 +357,7 @@
 															</div>
 															<input type="text" id="fname-icon" class="form-control"
 																name="fname-icon" th:field="*{username}"
-																placeholder="User Name" />
+																placeholder="User Name" required/>
 														</div>
 													</div>
 												</div>
@@ -375,7 +375,7 @@
 															</div>
 															<input type="email" id="email-icon" class="form-control"
 																name="email-id-icon" th:field="*{email}"
-																placeholder="Email" />
+																placeholder="Email" required/>
 														</div>
 													</div>
 												</div>
@@ -395,7 +395,7 @@
 																name="contact-icon" th:field="*{phone}" maxlength="10"
 																pattern="^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$"
 																title="Please enter number starts from 6,7,8 or 9"
-																placeholder="Mobile" />
+																placeholder="Mobile" required/>
 														</div>
 													</div>
 												</div>
@@ -412,7 +412,7 @@
 																		data-feather="image"></i></span>
 															</div>
 															<input type="file" class="form-control" name="file"
-																placeholder="Profile Image" />
+																placeholder="Profile Image" required/>
 														</div>
 													</div>
 												</div>

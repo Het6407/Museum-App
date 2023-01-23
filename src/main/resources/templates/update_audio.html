@@ -357,7 +357,7 @@
 															</div>
 															<input type="text" id="fname-icon" class="form-control"
 																name="fname-icon" th:field="*{title}"
-																placeholder="Title" />
+																placeholder="Title" required/>
 														</div>
 													</div>
 												</div>
@@ -375,7 +375,7 @@
 															</div>
 															<textarea type="text" id="email-icon" class="form-control"
 																name="email-id-icon" th:field="*{discription}"
-																placeholder="Discription Here">
+																placeholder="Discription Here" required>
 															</textarea>
 														</div>
 													</div>
@@ -392,7 +392,7 @@
 																<span class="input-group-text"><i
 																		data-feather="menu"></i></span>
 															</div>
-															<select class="form-control" th:field=*{language}>
+															<select class="form-control" th:field=*{language} required>
 																<option id="-1" value="-1">--Select--</option>
 																<option Value="Hindi">Hindi</option>
 																<option Value="English">English</option>
@@ -414,7 +414,7 @@
 																<span class="input-group-text"><i
 																		data-feather="radio"></i></span>
 															</div>
-															<select class="form-control" th:field=*{Tblbeacon}>
+															<select class="form-control" th:field=*{Tblbeacon} required> 
 																<option id="-1" value="-1">--Select--</option>
 																<option th:id="${beacon.id}"
 																	th:each="beacon : ${listBeacon}"
@@ -438,7 +438,7 @@
 																		data-feather="image"></i></span>
 															</div>
 															<input type="file" class="form-control" name="file"
-																placeholder="Profile Image" />
+																placeholder="Profile Image" required/>
 														</div>
 													</div>
 												</div>
