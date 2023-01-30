@@ -24,6 +24,11 @@ public interface UserService extends UserDetailsService{
 
 	User findById(Long id);
 
+	User createUser(User user);
+
+	//User editUser(Long id, User userDetails);
+	
+	void editUser(User user1);
 	
 	
 	

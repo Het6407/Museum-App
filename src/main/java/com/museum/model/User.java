@@ -14,6 +14,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -66,6 +68,7 @@ public class User implements UserDetails{
 	private byte[] profileImage;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+
 	@JoinColumn(name="museum_id")
 	private Museum museums;
 

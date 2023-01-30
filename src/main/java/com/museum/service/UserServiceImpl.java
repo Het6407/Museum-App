@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.museum.model.Museum;
 import com.museum.model.User;
+import com.museum.repository.MuseumRepository;
 import com.museum.repository.UserRepository;
 
 @Service
@@ -27,7 +28,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired
    private  PasswordEncoder passwordEncoder;
 	
-
+	@Autowired
+	private MuseumRepository museumRepository;
 	
 	@Override
 	public List<User> getAllUsers() { 
@@ -47,7 +49,7 @@ public class UserServiceImpl implements UserService{
 			}
 		}
 		
-		
+
 		
 		user.setRole("ADMIN");
 		
@@ -62,7 +64,37 @@ public class UserServiceImpl implements UserService{
 		
 		
 	}
+	
 
+
+	
+	@Override
+	public void editUser(User user1) {
+		
+	
+		user1.setEmail(user1.getEmail());
+		user1.setRole("ADMIN");
+		
+		user1.setStatus(true);
+		
+		if(user1.getId() != null) {
+			User userObj = userRepository.findById(user1.getId()).get();
+			if(userObj != null) {
+				user1.setPassword(userObj.getPassword());
+			}
+		}
+		
+	
+		
+		System.out.println(user1.getPassword());
+		
+		
+		userRepository.save(user1);
+	
+	}
+	
+
+	
 	@Override
 	public User getUserById(Long id) {
 		Optional<User> optional = userRepository.findById(id);
@@ -127,6 +159,15 @@ public class UserServiceImpl implements UserService{
 	}
 
 
+
+	@Override
+	public User createUser(User user) {
+		return userRepository.save(user);
+	}
+
+	 public List<User> getUsersByMuseumId(Integer museumId) {
+	        return userRepository.findByMuseumsId(museumId);
+	    }
 
 	
 

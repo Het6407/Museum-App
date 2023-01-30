@@ -48,6 +48,7 @@
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
 
 	<!-- BEGIN: Page CSS-->
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -377,7 +378,7 @@
 					<!-- list section start -->
 					<div class="card">
 						<div class="card-datatable table-responsive pt-0">
-							<table id="myTable" class="table" cellspacing="0" width="100%">
+							<table id="example" class="table" cellspacing="0" width="100%" >
 								<thead class="thead-light">
 									<tr>
 										<th></th>
@@ -392,7 +393,7 @@
 								<tbody>
 									<tr th:each="user:${listUsers}">
 
-										<td rowspan="1" style="text-align:center;" th:text="${user.id}"></td>
+										<td rowspan="1" style="text-align:center;" th:text="${user.id}"></td>		
 										<td rowspan="1" style="text-align:center;" th:text="${user.username}"></td>
 										<td rowspan="1" style="text-align:center;" th:text="${user.email}"></td>
 										<td rowspan="1" style="text-align:center;" th:text="${user.phone}"></td>
@@ -419,7 +420,7 @@
 								</tbody>
 							</table>
 
-
+			
 						</div>
 
 					</div>
@@ -450,6 +451,7 @@
 	<script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
 	<script src="../../../app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
 	<script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
 	
 <!--<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -467,6 +469,7 @@
 	<script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
 	<script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
 	<script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+
 	<!-- END: Page JS-->
 
 
@@ -559,10 +562,10 @@
 	</script>
 	
 	<script>
-	$(document).ready(function () {
+$(document).ready(function() {
     $('#example').DataTable();
 });
-	</script>
+</script>
 
 
 </body>

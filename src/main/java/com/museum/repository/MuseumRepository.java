@@ -1,5 +1,7 @@
 package com.museum.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,6 +15,8 @@ public interface MuseumRepository extends JpaRepository<Museum,Long>{
 
 	@Query("SELECT new com.museum.model.Museum(t.id,t.default_Audio) FROM Museum t WHERE t.id = :id")
 	Museum findMuseumDefaultAudioById(Long id);
+
+	Optional<Museum> findById(int id);
 
 	
 

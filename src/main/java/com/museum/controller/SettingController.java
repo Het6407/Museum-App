@@ -23,6 +23,7 @@ public class SettingController {
 	
 	@RequestMapping("/saveSetting")
 	public String saveSetting(Setting setting,Model model) {
+		
 		settingService.saveSetting(setting);
 		return "redirect:/app_setting";
 	}

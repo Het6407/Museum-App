@@ -55,6 +55,10 @@
 </dependency>
  
  
+  <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
  
  <dependency>
     <groupId>commons-io</groupId>
@@ -92,6 +96,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>datatables</artifactId>
+    <version>1.10.22</version>
+</dependency>
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 <dependency>
     <groupId>org.projectlombok</groupId>

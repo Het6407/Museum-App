@@ -307,7 +307,7 @@
 									<h4 class="card-title">Update User</h4>
 								</div>
 								<div class="card-body">
-									<form th:action="@{/saveUser}" th:object="${user}" enctype="multipart/form-data"
+									<form th:action="@{/editUser}" th:object="${user}" enctype="multipart/form-data"
 										method="post">
 										<input type="hidden" th:field="*{id}" />
 										<div class="row">

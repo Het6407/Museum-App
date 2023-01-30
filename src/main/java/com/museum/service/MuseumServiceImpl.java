@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,12 +14,16 @@ import com.museum.Utility.CommonUtility;
 import com.museum.model.Museum;
 import com.museum.model.User;
 import com.museum.repository.MuseumRepository;
+import com.museum.repository.UserRepository;
 
 @Service
 public class MuseumServiceImpl implements MuseumService {
 
 	@Autowired
 	private MuseumRepository museumRepository;
+	
+	@Autowired
+	 private UserRepository userRepository;
 
 	@Override
 	public List<Museum> getAllMuseum() {
@@ -92,5 +98,7 @@ public class MuseumServiceImpl implements MuseumService {
 			}
 			museumRepository.save(museum);
 		}
-	}
+	}	
+	
+	
 }
