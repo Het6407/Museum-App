@@ -93,7 +93,24 @@ public class UserServiceImpl implements UserService{
 	
 	}
 	
+	@Override
+	public void editProfile(User user2) {
+		
+		user2.setEmail(user2.getEmail());
+		
+user2.setRole("ADMIN");
 
+if(user2.getId() != null) {
+	User userProfile = userRepository.findById(user2.getId()).get();
+	if(userProfile != null) {
+		user2.setPassword(userProfile.getPassword());
+	}
+}
+		
+		user2.setStatus(true);
+		
+		userRepository.save(user2);
+	}
 	
 	@Override
 	public User getUserById(Long id) {

@@ -37,8 +37,8 @@
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-pickadate.css">
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
 	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+	<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
+	    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
 	<!-- END: Page CSS-->
 
 	<!-- BEGIN: Custom CSS-->
@@ -361,7 +361,7 @@
 											<!--/ header media -->
 
 											<!-- form -->
-											<form class="form-validate" th:action="@{/saveUser}" th:object="${user}"
+											<form class="form-validate" th:action="@{/saveProfile}" th:object="${user}"
 												enctype="multipart/form-data" method="post">
 												<input type="hidden" th:field="*{id}" />
 												<div class="media-body mt-75 ml-1">
@@ -421,7 +421,7 @@
 														</div>
 
 														<div class="col-12">
-															<button type="submit" class="btn btn-primary mt-2 mr-1" >Save
+															<button type="submit" class="btn btn-primary mt-2 mr-1" id="type-success" >Save
 																changes</button>
 															<button type="reset"
 																class="btn btn-outline-secondary mt-2">Cancel</button>
@@ -453,7 +453,8 @@
 	<!-- BEGIN: Vendor JS-->
 	<script src="../../../app-assets/vendors/js/vendors.min.js"></script>
 	<!-- BEGIN Vendor JS-->
-
+	 <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+	 <script src="../../../app-assets/js/scripts/extensions/ext-component-toastr.js"></script>
 	<!-- BEGIN: Page Vendor JS-->
 	<script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
 	<script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
@@ -464,12 +465,12 @@
 	<!-- BEGIN: Theme JS-->
 	<script src="../../../app-assets/js/core/app-menu.js"></script>
 	<script src="../../../app-assets/js/core/app.js"></script>
-	<script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+	
 	<script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
-	<script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+	
 	<!-- END: Theme JS-->
-
-	<!-- BEGIN: Page JS-->
+				
+					<!-- BEGIN: Page JS-->
 	<script src="../../../app-assets/js/scripts/pages/page-account-settings.js"></script>
 	<!-- END: Page JS-->
 
@@ -483,7 +484,21 @@
 			}
 		})
 	</script>
-
+	
+	<script>
+	
+	 typeSuccess.on('click', function () {
+    toastr['success']('👋 Jelly-o macaroon brownie tart ice cream croissant jelly-o apple pie.', 'Success!', {
+      closeButton: true,
+      tapToDismiss: false,
+      
+      rtl: isRtl
+      
+    });
+  });
+  
+  
+	</script>
 	
 
 </body>

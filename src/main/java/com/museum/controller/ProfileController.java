@@ -3,6 +3,7 @@ package com.museum.controller;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.InvalidParameterException;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,22 @@ public class ProfileController {
 	
 	public String uploadDirectory=System.getProperty("User.dir")+"/src/main/resources/static/images";
 	@RequestMapping(value="/saveProfile", consumes = {"multipart/form-data" })
-	public String uploadFile(@PathVariable Long id,@ModelAttribute("uesr") User user,Model model, @RequestPart("file") MultipartFile file) {
+	public String uploadFile(@ModelAttribute("uesr") User user,Model model, @RequestPart("file") MultipartFile file) {
+		try {
+			userService.editProfile(user);
+		}
+		catch(InvalidParameterException e){
+			
+			model.addAttribute("error", e.getMessage());
+			//System.out.println(model.getAttribute("error"));
+			
+			
+			model.addAttribute("user",user);
+			return "profile";
+		}
+		
+		
+		
 		try {
 			user.setProfileImage(file.getBytes());
 		} catch (IOException e1) {
@@ -53,7 +69,7 @@ public class ProfileController {
 		file.getOriginalFilename();
 
 		String filename = user.getId()
-				+ file.getOriginalFilename().substring(file.getOriginalFilename().length() - 4);
+				+ file.getOriginalFilename().substring(file.getOriginalFilename().length());
 
 		// System.out.println(filename);
 		java.nio.file.Path fileNameAndPath = Paths.get(uploadDirectory, filename);
@@ -66,7 +82,7 @@ public class ProfileController {
 		}
 
 		user.getProfileImage();
-		userService.saveUser(user);
+		userService.editProfile(user);
 		
 		return "redirect:/profile";
 	}

@@ -29,6 +29,8 @@ public interface UserService extends UserDetailsService{
 	//User editUser(Long id, User userDetails);
 	
 	void editUser(User user1);
+
+	void editProfile(User user2);
 	
 	
 	
