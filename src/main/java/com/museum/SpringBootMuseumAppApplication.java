@@ -27,6 +27,8 @@ public class SpringBootMuseumAppApplication {
 	
 	
 	
+	
+	
 	/*
 	 * @Bean CommandLineRunner demo(UserRepository museumRepository) { return (args)
 	 * -> {
@@ -35,6 +37,8 @@ public class SpringBootMuseumAppApplication {
 	 * .email("superadmin@museum.com") .status(true).role("SUPER_ADMIN")
 	 * .password(passwordEncoder().encode("123")) .build()); }; }
 	 */
+	 
+	 
 	 
 	 
 	

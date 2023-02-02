@@ -137,6 +137,10 @@ public class BeaconServiceImpl implements BeaconService {
 
 	@Override
 	public void deleteBeaconById(long id) {
+		
+		Optional<Beacon> beaconDelete = beaconRepository.findById(id);
+		beaconDelete.get().setTblmuseum(null);
+		
 		this.beaconRepository.deleteById(id);
 
 	}

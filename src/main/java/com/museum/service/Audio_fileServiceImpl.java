@@ -41,6 +41,10 @@ public class Audio_fileServiceImpl implements Audio_fileService{
 
 	@Override
 	public void deleteAudio_fileById(long id) {
+		
+		Optional<Audio_file> audioDelete = audio_fileRepository.findById(id);
+		audioDelete.get().setTblbeacon(null);
+		
 		this.audio_fileRepository.deleteById(id);
 		
 	}

@@ -4,10 +4,14 @@ import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,6 +34,8 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private MuseumRepository museumRepository;
+	
+	
 	
 	@Override
 	public List<User> getAllUsers() { 
@@ -65,8 +71,10 @@ public class UserServiceImpl implements UserService{
 		
 	}
 	
-
-
+	@Override
+	public Page<User> findPaginated(Pageable pageable) {
+		  return userRepository.findAll(pageable);
+		}
 	
 	@Override
 	public void editUser(User user1) {
@@ -129,6 +137,9 @@ if(user2.getId() != null) {
 	@Override
 	public void deleteUserById(Long id) {
 		
+	Optional<User> userDelete = userRepository.findById(id);
+	userDelete.get().setMuseums(null);
+	
 		this.userRepository.deleteById(id);
 	}
 

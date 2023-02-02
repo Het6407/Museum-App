@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.rmi.server.ExportException;
 import java.security.InvalidParameterException;
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -18,24 +17,19 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,7 +57,15 @@ public class UserController {
 	
 	
 	@GetMapping("/user")
-	public String viewUser(Model model) {
+	public String viewUser(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
+		
+		 Page<User> users = userService.findPaginated(PageRequest.of(page - 1, size));
+		  model.addAttribute("users", users);
+		  model.addAttribute("currentPage", page);
+		  model.addAttribute("totalPages", users.getTotalPages());
+		
+		
+		
 		model.addAttribute("listUsers", userService.getAllUsers());
 
 		return "user";

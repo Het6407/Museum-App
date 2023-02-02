@@ -2,6 +2,8 @@ package com.museum.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.museum.model.User;
@@ -31,6 +33,10 @@ public interface UserService extends UserDetailsService{
 	void editUser(User user1);
 
 	void editProfile(User user2);
+
+	Page<User> findPaginated(Pageable pageable);
+
+	
 	
 	
 	

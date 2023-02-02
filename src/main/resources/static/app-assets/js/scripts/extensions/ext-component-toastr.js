@@ -35,10 +35,13 @@ $(function () {
 
   // Success Type
   typeSuccess.on('click', function () {
-    toastr['success']('👋 Jelly-o macaroon brownie tart ice cream croissant jelly-o apple pie.', 'Success!', {
+    toastr['success']('Hello !!!', 'Success!', {
       closeButton: true,
-      tapToDismiss: false,
-      rtl: isRtl
+       timeOut:0,
+       extendedTimeOut: 100000,
+       fadeOut: 50,
+       fadeAway: 1000
+     
     });
   });
 
