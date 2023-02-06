@@ -2,51 +2,12 @@
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta name="description"
-		content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-	<meta name="keywords"
-		content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-	<meta name="author" content="PIXINVENT">
-	<title>Audio List</title>
-	<link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
-	<link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
-		rel="stylesheet">
-
-	<!-- BEGIN: Vendor CSS-->
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-
-	<link rel="stylesheet" type="text/css"
-		href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
-	<!-- END: Vendor CSS-->
-
-	<!-- BEGIN: Theme CSS-->
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
-
-	<!-- BEGIN: Page CSS-->
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-	<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-	<!-- END: Page CSS-->
-
-	<!-- BEGIN: Custom CSS-->
-	<link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-	<link href="assets/lib/datatables-bs4/dataTables.bootstrap4.min.css" rel="stylesheet">
-	<link href="assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.css" rel="stylesheet">
-	<!-- END: Custom CSS-->
-
-</head>
-<!-- END: Head-->
+<div th:replace="header :: header"></div>
+<style>
+    div#audiotable_wrapper {
+        padding: 0px 10px;
+    }
+</style>
 
 <!-- BEGIN: Body-->
 
@@ -342,43 +303,36 @@
 				<!-- users list start -->
 				<section class="app-user-list">
 					<!-- users filter start -->
-					<div class="card">
-						<h5 style="position: absolute; top: 36%; left: 2%; color: blueviolet; font-weight: bold;">Audio
-							List</h5>
-						<a th:href="@{/addAudio}" class="btn btn-primary hello">Add Audio
-						</a>
-						<div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
-							<div class="col-md-4 user_role"></div>
-							<div class="col-md-4 user_plan"></div>
-							<div class="col-md-4 user_status"></div>
-						</div>
-					</div>
+				
 					<!-- users filter end -->
 					<!-- list section start -->
-
+					
 					<div class="card">
 						<div class="card-datatable table-responsive pt-0">
-
-							<table id="example" class="table">
+							 <a th:href="@{/addAudio}">
+                            <button class="btn btn-primary mr-3 data-submit" style="float: right;margin-top: 14px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;">Add AUdio</button>
+    </a>
+							<table id="audiotable" class="table" cellspacing="0" width="100%">
 								<thead class="thead-light">
 									<tr>
-										<th rowspan="2" style="text-align: center;">ID</th>
-										<th rowspan="2" style="text-align: center;">Title</th>
-										<th rowspan="2" style="text-align: center;">Language</th>
-										<th rowspan="2" style="text-align: center;">Beacon Name</th>
-										<th rowspan="2" style="text-align: center;">Status</th>
-										<th rowspan="2" style="text-align: center;">Actions</th>
+										<th>ID</th>
+										<th>Title</th>
+										<th>Language</th>
+										<th>Beacon Name</th>
+										<th>Status</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="audio_file:${listAudio}">
-										<td rowspan="1" style="text-align:center;" th:text="${audio_file.id}"></td>
-										<td rowspan="1" style="text-align:center;" th:text="${audio_file.title}"></td>
-										<td rowspan="1" style="text-align:center;" th:text="${audio_file.language}">
-										</td>
-										<td rowspan="1" style="text-align:center;"
+										<td  th:text="${audio_file.id}"></td>
+										<td  th:text="${audio_file.title}"></td>
+										<td  th:text="${audio_file.language}"></td>
+										<td 
 											th:text="${audio_file.Tblbeacon.beacon_name}"></td>
-										<td rowspan="1" style="text-align:center;">
+										<td >
 											<div class="custom-control custom-switch custom-switch-success">
 												<input type="checkbox" class="custom-control-input"
 													th:id="'status'+${audio_file.id}" th:checked="${audio_file.status}"
@@ -390,7 +344,7 @@
 												</label>
 											</div>
 										</td>
-										<td rowspan="1" style=" position: relative; left: 0px; text-align:center; "><a
+										<td><a
 												th:href="@{/updateAudio/{id}(id=${audio_file.id})}"
 												class="btn btn-outline-success round waves-effect">Edit</a>
 											<button th:onclick="'deleteAudio('+${audio_file.id}+');'"
@@ -417,42 +371,10 @@
 	<div class="drag-target"></div>
 
 
-
-
-	<!-- BEGIN: Vendor JS-->
-	<script src="../../../app-assets/vendors/js/vendors.min.js"></script>
-	<!-- BEGIN Vendor JS-->
-
-	<!-- BEGIN: Page Vendor JS-->
-	<script src="../../../app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
-	<script src="../../../app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
-	<script src="../../../app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
-	<script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-	<script src="../../../app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
-	<script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-	<!-- END: Page Vendor JS-->
-
-	<script src="../../../app-assets/js/core/app-menu.js"></script>
-	<!-- BEGIN: Theme JS-->
-	<script src="../../../app-assets/js/core/app.js"></script>
-	<!-- END: Theme JS-->
-
-	<!-- BEGIN: Page JS-->
-
-	<script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-	<script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
-	<script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
-	<!-- END: Page JS-->
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-	<script src="assets/lib/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="assets/lib/datatables-bs4/dataTables.bootstrap4.min.js"></script>
-	<script src="assets/lib/datatables.net-responsive/dataTables.responsive.js"></script>
-	<script src="assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
-
+<div th:replace="footer :: footer"></div>
 	<script>
 		$(document).ready(function () {
-			$('#example').DataTable();
+			$('#audiotable').DataTable();
 		});
 	</script>
 	<script>
