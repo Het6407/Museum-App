@@ -3,6 +3,7 @@ package com.museum.service;
 import java.util.List;
 
 import com.museum.model.Profile;
+import com.museum.model.User;
 
 public interface ProfileService {
 
@@ -13,5 +14,9 @@ public interface ProfileService {
 	Profile getProfileById(Long id);
 	
 	Profile findById(Long id);
+	
+	void saveProfiles(User profile);
+
+	
 
 }

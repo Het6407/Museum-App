@@ -296,7 +296,7 @@
 						<div class="card-body">
 							<form class="form form-horizontal" th:action="@{/saveSetting}" th:object="${setting}"
 								method="post">
-
+										<input type="hidden" th:field="*{id}" />
 								<div class="row">
 									<div class="col-12">
 										<div class="form-group row">

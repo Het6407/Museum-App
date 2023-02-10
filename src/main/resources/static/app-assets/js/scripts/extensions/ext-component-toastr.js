@@ -38,9 +38,9 @@ $(function () {
     toastr['success']('Hello !!!', 'Success!', {
       closeButton: true,
        timeOut:0,
-       extendedTimeOut: 100000,
+       extendedTimeOut: 10000000,
        fadeOut: 50,
-       fadeAway: 1000
+       fadeAway: 100000
      
     });
   });

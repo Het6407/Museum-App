@@ -131,8 +131,8 @@ public class UserController {
 		return "redirect:/user";
 	}
 	
-	@RequestMapping(value = "/editUser", consumes = {"multipart/form-data" } )
-	public String editUser( User user1,Model model, @RequestPart("file") MultipartFile file) {
+	@RequestMapping(value = "/editUser")
+	public String editUser( User user1,Model model) {
 		//System.out.println(user);
 		try {
 			userService.editUser(user1);
@@ -147,35 +147,7 @@ public class UserController {
 			return "add_User";
 		}
 		
-		try {
-			user1.setProfileImage(file.getBytes());
-		} catch (IOException e1) {
-
-			e1.printStackTrace();
-		}
-
-		file.getOriginalFilename();
-
-		String filename = user1.getId()
-				+ file.getOriginalFilename().substring(file.getOriginalFilename().length());
-
-		// System.out.println(filename);
-		java.nio.file.Path fileNameAndPath = Paths.get(uploadDirectory, filename);
-
-		try {
-			Files.write(fileNameAndPath, file.getBytes());
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		
-		user1.getProfileImage();
-		
-		
-		
 		userService.editUser(user1);
-		
 		
 		
 		return "redirect:/user";

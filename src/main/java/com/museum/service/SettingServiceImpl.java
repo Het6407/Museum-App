@@ -11,11 +11,11 @@ import com.museum.model.User;
 import com.museum.repository.SettingRepository;
 
 @Service
-public class SettingServiceImpl implements SettingService{
+public class SettingServiceImpl implements SettingService {
 
 	@Autowired
 	private SettingRepository settingRepository;
-	
+
 	@Override
 	public List<Setting> getAllSetting() {
 		return settingRepository.findAll();
@@ -23,23 +23,17 @@ public class SettingServiceImpl implements SettingService{
 
 	@Override
 	public void saveSetting(Setting setting) {
-		
-	
-		
+
 		settingRepository.save(setting);
-		
+
 	}
 
 	@Override
-	public Setting getSettingById(long id) {
-Optional<Setting> optional = settingRepository.findById(id);
-		
+	public Setting getSettingById() {
 		Setting setting = null;
-		if(optional.isPresent()) {
-			setting = optional.get();		
-			}
-		else {
-			throw new RuntimeException("User not found for id :: " + id);
+		List<Setting> versions = settingRepository.findAll();
+		if (versions != null && !versions.isEmpty()) {
+			setting = versions.get(0);
 		}
 		return setting;
 	}

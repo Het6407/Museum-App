@@ -13,5 +13,5 @@ public interface SettingService {
 	List<Setting> getAllSetting();
 
 	void saveSetting(Setting setting);
-Setting getSettingById(long id);
+Setting getSettingById();
 }

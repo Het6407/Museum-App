@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 
 import com.museum.model.Profile;
+import com.museum.model.User;
 import com.museum.repository.ProfileRepository;
+import com.museum.repository.UserRepository;
 
 @Service
 public class profileServiceImpl implements ProfileService {
@@ -16,8 +18,15 @@ public class profileServiceImpl implements ProfileService {
 	@Autowired
 	private ProfileRepository profileRepository;
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	@Override
 	public void saveProfile(Profile profile) {
+		
+		User user = userRepository.findById(profile.getId()).get();
+		user.setMuseums(user.getMuseums());
+		
 		profileRepository.save(profile);
 	}
 
@@ -45,6 +54,12 @@ public class profileServiceImpl implements ProfileService {
 		}
 
 		return profile;
+	}
+
+	@Override
+	public void saveProfiles(User profile) {
+		userRepository.save(profile);
+		
 	}
 
 }

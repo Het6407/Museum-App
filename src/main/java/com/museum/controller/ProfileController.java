@@ -43,7 +43,7 @@ public class ProfileController {
 	
 	public String uploadDirectory=System.getProperty("User.dir")+"/src/main/resources/static/images";
 	@RequestMapping(value="/saveProfile", consumes = {"multipart/form-data" })
-	public String uploadFile(@ModelAttribute("uesr") User user,Model model, @RequestPart("file") MultipartFile file) {
+	public String uploadFile( User user,Model model, @RequestPart("file") MultipartFile file) {
 		try {
 			userService.editProfile(user);
 		}
@@ -80,7 +80,7 @@ public class ProfileController {
 
 			e.printStackTrace();
 		}
-
+		
 		user.getProfileImage();
 		userService.editProfile(user);
 		
